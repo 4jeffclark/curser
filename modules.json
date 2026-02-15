@@ -1,0 +1,51 @@
+{
+  "modules": {
+    "workflow-commands": {
+      "description": "Essential workflow optimization commands for development productivity",
+      "commands": [
+        "task-management.md",
+        "code-review.md",
+        "git-workflow.md"
+      ],
+      "rules": []
+    },
+    "debugging-commands": {
+      "description": "Advanced debugging and troubleshooting commands",
+      "commands": [
+        "debug-session.md",
+        "error-analysis.md",
+        "performance-profile.md"
+      ],
+      "rules": []
+    },
+    "python-commands": {
+      "description": "Python development workflows and best practices",
+      "commands": [
+        "pytest-setup.md",
+        "code-formatting.md",
+        "dependency-analysis.md"
+      ],
+      "rules": [
+        "python-standards.mdc"
+      ]
+    },
+    "financial-commands": {
+      "description": "Financial modeling and analysis commands",
+      "commands": [
+        "portfolio-analysis.md",
+        "risk-assessment.md",
+        "ledger-audit.md"
+      ],
+      "rules": [
+        "financial-modeling.mdc",
+        "accounting-standards.mdc"
+      ]
+    }
+  },
+  "domains": {
+    "python": ["python-commands"],
+    "financial": ["financial-commands"],
+    "web": ["web-commands"],
+    "workflow": ["workflow-commands", "debugging-commands"]
+  }
+}

@@ -1,0 +1,51 @@
+---
+description: Testing patterns and conventions for quickFin suite
+globs:
+  - "test/**/*.py"
+  - "**/test_*.py"
+alwaysApply: false
+---
+
+# Testing Patterns
+
+## Test Structure
+
+- Create `test/[feature-number]/unit/` structure automatically during implementation
+- Service tests: `test/[feature-number]/unit/test_services/test_[service_name].py`
+- Model tests: `test/[feature-number]/unit/test_models/test_[model_name].py`
+- Test directory structure (`test/[feature-number]/unit/`, `test/[feature-number]/devworkspace/`) is automatically created during implementation phase
+
+## Test Coverage
+
+- Cover normal operations, error conditions, edge cases, and integration scenarios
+- Each service method must have corresponding tests
+- Each model extension must have corresponding tests
+- All new code should have corresponding unit tests covering:
+  - Normal operation paths
+  - Error conditions
+  - Edge cases
+  - Integration with existing components
+
+## Test Fixtures
+
+- Location: `test/[feature-number]/unit/fixtures/`
+- Use descriptive names: `sample_input.json`, `sample_config.json`
+
+## Developer Workspace
+
+- Location: `test/[feature-number]/devworkspace/`
+- Create sample input files for each user story: `us1_[feature]_input.json`
+- Include README.md documenting purpose and usage of each input file
+- Use for improvised testing and experimentation
+
+## Test Automation
+
+- `/speckit.implement` automatically generates unit tests after implementation completes
+- Alternative: Run `/speckit.tests` manually after implementation to generate or regenerate unit tests
+
+## Testing Integration
+
+- Regression testing: Always validate existing functionality
+- Feature testing: Test new functionality thoroughly
+- Integration testing: Ensure new features work with existing code
+- User validation: Wait for user feedback before proceeding

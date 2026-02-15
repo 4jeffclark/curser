@@ -1,0 +1,46 @@
+---
+description: Service architecture patterns and code organization for quickFin
+globs:
+  - "src/**/*.py"
+alwaysApply: false
+---
+
+# Architecture Patterns
+
+## Service Pattern
+
+- Services must implement clear, well-defined interfaces
+- Services must be self-contained and independently testable
+- Use established patterns for error handling, logging, and validation
+- Maintain backward compatibility when extending interfaces
+
+## Code Reuse
+
+- Import from existing modules rather than duplicating code
+- Follow established conventions from similar functionality
+- Reference working patterns from existing implementations
+- Use centralized services (e.g., LedgerQueryService) for shared operations
+- When the same query, calculation, or I/O pattern appears in multiple places, extract it into a shared service
+- Eliminate unnecessary wrapper methods that duplicate functionality already available in shared services
+
+## Error Handling
+
+- Use context managers for file operations
+- Validate file paths and existence before processing
+- Handle file format errors with clear, actionable messages
+- Provide actionable error messages and next steps
+
+## Logging
+
+- Use consistent logging patterns across all modules
+- Implement LoggingLevel enum (NONE, BASIC, DEBUG) for CLI output
+- Essential feedback must be visible at BASIC level (default mode)
+- Test console output with LoggingLevel.NONE to ensure users aren't left blind
+- Never log sensitive data in plain text
+
+## CLI Standards
+
+- Progress indicators: Show current operation and completion status
+- Error handling: Comprehensive error checking with clear messages
+- User guidance: Provide actionable error messages and next steps
+- Exit codes: 0 (success), 1 (file error), 2 (validation error), 3 (usage error)

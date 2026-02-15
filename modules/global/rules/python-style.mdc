@@ -1,0 +1,43 @@
+---
+description: Python code style conventions and patterns for quickFin suite
+globs:
+  - "**/*.py"
+alwaysApply: false
+---
+
+# Python Style Guide
+
+## Naming Conventions
+
+- Use snake_case for functions, variables, and modules
+- Use PascalCase for classes
+- Use UPPER_CASE for constants
+- Use descriptive names that indicate purpose
+
+## Code Organization
+
+- Import standard library first
+- Then third-party imports
+- Then local imports
+- Use absolute imports from package root
+
+## Type Hints
+
+- Use type hints for all function signatures
+- Use dataclasses for all data structures with comprehensive validation
+- Prefer typing.Optional over Union[Type, None]
+
+## Error Handling
+
+- Use context managers for file operations
+- Provide actionable error messages
+- Use specific exception types
+- Validate file paths and existence before processing
+- Handle file format errors with clear, actionable messages
+- Implement safe file writing with proper error handling
+
+## File Operations
+
+- Use pathlib for cross-platform path handling (where applicable)
+- Ensure UTF-8 encoding for text outputs
+- Support application-specific file formats (e.g., Excel, CSV, JSON) with appropriate error handling

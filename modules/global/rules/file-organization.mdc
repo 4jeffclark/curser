@@ -1,0 +1,71 @@
+---
+description: File and directory organization patterns for quickFin suite
+globs:
+  - "**/*"
+alwaysApply: false
+---
+
+# File Organization
+
+## Directory Structure
+
+```
+[suite-root]/
+├── src/                 # Source code
+├── doc/                 # Documentation
+│   ├── main/            # Current implementation docs
+│   ├── backlog/         # Future work (optional)
+│   └── archive/         # Historical work (optional)
+├── test/                # Test suites (feature-based)
+```
+
+
+## Test Structure
+
+```
+test/[git branch name]/
+├── unit/                # Automated tests
+│   ├── fixtures/
+│   ├── test_services/
+│   └── test_models/
+└── devworkspace/        # Developer workspace
+```
+
+## Documentation Organization
+
+The `doc/` folder organizes documentation into three categories:
+
+1. **`doc/main/`** - Current implementation documentation
+   - Contains documentation of the current state of the suite
+   - Typically contains: `DEVELOPER_GUIDE.md`, `END_USER_GUIDE.md`
+   - May include `README.md` as a simple index (optional)
+
+2. **`doc/backlog/`** - Future work and strategies (optional)
+   - Contains design documents and strategies for future and wip features. Always store wip design and planning documents here. Move to archive when implementation is complete.
+
+3. **`doc/archive/`** - Historical/completed work (optional)
+   - Contains documentation of completed work, migrations, and historical records
+
+## Naming Conventions
+
+- Feature specs: `[number]-[descriptive-name]` (kebab-case)
+- Test files: `test_*.py` (pytest discovery)
+- Test scripts: `test-*.ps1` (PowerShell)
+- Specification files: `spec.md`, `plan.md`, `research.md`, `data-model.md`, `quickstart.md`
+- Implementation files: `tasks.md` (created by speckit.tasks)
+- Contract files: `cli-contract.md`, `api-contract.md` (if needed)
+
+## README Requirements
+
+- Every directory containing automation, tooling, or staged artifacts must include a lightweight `README.md` that summarizes the folder purpose and lists the canonical section(s) of `doc/main/DEVELOPER_GUIDE.md` that document how to use the contents.
+
+## Anti-Proliferation Guidelines (NON-NEGOTIABLE)
+
+**Do not create content, documentation, scripts, or artifacts unless explicitly requested by the user.**
+
+- **No Unrequested Documentation**: Do not create documentation files (*.md), analysis documents, summary reports, or README files unless explicitly requested
+- **No Unrequested Plans**: Do not create plan documents or design documents unless part of the speckit workflow or explicitly requested
+- **No Duplicate Scripts**: Before creating helper scripts, check `test/helper-scripts/` for existing scripts that can be used, refactored, or extended
+- **No Unrequested Code Documentation**: Do not create code documentation files, API documentation, or implementation guides unless explicitly requested
+- **Check Before Creating**: Always check for existing solutions, scripts, utilities, or documentation before creating new ones
+- **Reuse Over Create**: Prefer refactoring, extending, or consolidating existing content over creating new duplicates

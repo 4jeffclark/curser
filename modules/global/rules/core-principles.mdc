@@ -1,0 +1,33 @@
+---
+description: Critical non-negotiable principles for quickFin development
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Core Principles (NON-NEGOTIABLE)
+
+## Anti-Proliferation
+- Do NOT create documentation, scripts, or artifacts unless explicitly requested
+- Check `test/helper-scripts/` before creating new scripts
+- Prefer reusing/extending existing content over creating new
+
+## Helper Scripts Library
+- ALWAYS check `test/helper-scripts/` before creating debugging or validation scripts
+- ADAPT existing scripts rather than creating new ones when possible
+- CONTRIBUTE useful scripts back to `test/helper-scripts/` from any location
+- The library grows organically through reuse and contribution
+
+## Separation of Concerns
+- Do not implement fallback behaviors as a way to resolve unexpected results. Instead investigate the root cause.
+
+## Start with Working Code
+- Always begin with existing, working code patterns
+- Follow established codebase conventions
+- Never reinvent what already works
+
+## User Runs Full Product Tests
+- The USER runs full product tests using their test batch file
+- Do NOT attempt to run the test batch file or full product tests directly
+- Wait for the user to provide output folder paths for validation
+- Agent role is to analyze test outputs, not execute tests
